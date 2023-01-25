@@ -1,13 +1,27 @@
+
+
 body {
-    /* background-color: black; */
+    background-color: wheat;
     color:black;
     text-align: center;
-  }
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+/* .game{
+    background-color: gray;
+    height: 800px;
+    width: 800px;
+} */
   
 
+
 table {
+
+position: relative;
 margin: -0 auto;
+margin-top: 40px;
 border: 1px black solid;
+
 }
 
 .cell {
@@ -16,11 +30,20 @@ border: 1px black solid;
     text-align: center;
     font-size: 1.5em;
     border: 1px black solid;
-    
 }
 
+button{
+    width: 65px;
+    height: 25px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
 .unshown span{
 display: none;
+}
+
+.shown{
+    background-color: gray;
 }
 
 img {
@@ -29,7 +52,49 @@ img {
     margin: 0 auto;
 }
 
+img {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.hint {
+    margin-top: 50px;
+    padding: 20px 20px;
+    width: 60px;
+    height: 35px;
+}
+
 footer{
     margin-top: 25px;
 }
+
+.time{
+    position:absolute;
+    background-color: black;
+    color: green;
+    width: 60px;
+    height: 25px;
+    margin: 0 auto;
+    border: 3px solid white;
+    right: 650px;
+    text-align: center;
+    padding: 5px;
+    top: 220px;
+}
+
+.lives {
+    position:absolute;
+    background-color: white;
+    color: green;
+    width: 100px;
+    height: 25px;
+    margin: 0 auto;
+    border: 3px solid black;
+    right: 750px;
+    text-align: center;
+    padding: 5px;
+    top: 220px;
+}
+
 

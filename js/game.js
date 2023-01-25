@@ -16,6 +16,8 @@ const gGame = {
 
 var gBoard = buildBoard()
 const MINE_IMG = '<img src="/Day13-14-Sprint1/1st Delivery - Wednesday 2100/img/mine.png">'
+const FLAG_IMG = '<img src="/Day13-14-Sprint1/1st Delivery - Wednesday 2100/img/flag.png">'
+
 
 function onInit() {
     gGame.isOn = true
@@ -25,11 +27,14 @@ function onInit() {
     renderBoard(gBoard)
     var elGameMode = document.querySelector('h2 span')
     elGameMode.innerText = 'Wait for gamer to start'
-    // putMines(gBoard)
+    marked()
+
 
 }
 
 function buildBoard() {
+
+
     const board = []
     for (var i = 0; i < gLevel.SIZE; i++) {
         board[i] = []
@@ -57,12 +62,22 @@ function renderBoard(board) {
         strHTML += `<tr class="row-${i}" >\n`
         for (var j = 0; j < board.length; j++) {
             const cell = board[i][j]
-            var className = ` cell-${i}-${j}`
-            var cellContent = gBoard[i][j].isMine ? MINE_IMG : gBoard[i][j].minesAroundCount
-            className += cell.isMine ? ' mine' : ''
-            className += cell.isMarked ? ' marked' : ''
-            className += cell.isShown ? ' shown' : ' unshown'
-            strHTML += `\t<td class="cell${className}"  onclick="onCellClicked(this,${i},${j})"><span>${cellContent}</span> </td>\n`
+            var dataName = `data-row="${i}" data-col="${j}"`
+            var className = ` unshown`
+            var cellContent = cell.minesAroundCount
+
+            if (cell.isMine) {
+                cellContent = MINE_IMG
+                className += ' mine'
+            }
+            if (cell.isMarked) {
+                cellContent = FLAG_IMG
+                className = ' marked'
+            } else if (cell.isShown) {
+                className = ' shown'
+            }
+
+            strHTML += `\t<td class="cell${className}" ${dataName} onclick="onCellClicked(this,${i},${j})"><span>${cellContent}</span> </td>\n`
 
         }
     }
@@ -84,10 +99,14 @@ function setMinesNegsCount(board) {
 }
 
 function onCellClicked(elCell, i, j) {
+    debugger
+     if(checkGameOver()) gameOver()
+
     const cell = gBoard[i][j]
 
     if (!gGame.isOn) return
     if (cell.isMarked) return
+    if (cell.isShown) return
 
     cell.isShown = true
     gGame.shownCount++
@@ -104,9 +123,10 @@ function onCellClicked(elCell, i, j) {
 
 }
 
-function onCellMarked(elCell) {
-    const cell = gBoard[i][j]
-    cell.isShown = true
+function onCellMarked(row, col) {
+    const cell = gBoard[row][col]
+    cell.isMarked = true
+    renderBoard(gBoard)
 
 }
 
@@ -147,9 +167,15 @@ function expandShown(board, elCell, rowIdx, colIdx) {
             if (!gBoard[i][j].isShown) {
                 gBoard[i][j].isShown = true
                 gGame.shownCount++
+                if(checkGameOver()) gameOver()
             }
         }
     }
+}
+
+function checkGameOver() {
+
+    return ((gGame.shownCount+gGame.markedCount===((gLevel.SIZE**2)-gLevel.MINES)))
 }
 
 function gameOver() {
@@ -158,5 +184,39 @@ function gameOver() {
     console.log('Game Over')
     gGame.isOn = false
 
+}
 
+function marked() {
+    var cells = document.querySelectorAll('.cell'); // Select all cells in the table
+    cells.forEach(cell => {
+        cell.addEventListener('contextmenu', event => {
+            event.preventDefault(); // prevent the browser's default context menu from appearing
+            const row = event.target.dataset.row; // Get the row number of the clicked cell
+            const col = event.target.dataset.col; // Get the column number of the clicked cell
+            onCellMarked(row, col); // Run your function with the row and column of the clicked cell
+        });
+    });
+}
+
+function updateLevel(num) {
+    
+    switch (num) {
+        case 4:
+            gLevel.SIZE=4
+            gLevel.MINES=2
+            break;
+        case 8:
+            gLevel.SIZE=8
+            gLevel.MINES=14
+            break;
+        case 12:
+            gLevel.SIZE=12
+            gLevel.MINES=32
+            break;
+
+        default:
+            return null
+    }
+
+onInit()
 }

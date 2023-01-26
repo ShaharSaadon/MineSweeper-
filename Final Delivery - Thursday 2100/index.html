@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body onload="onInit()" onmousedown="handleMouseRightClick(event)">
+    <div class="game">
+        <h1>The MineSweeper Game</h1>
+        <h2><span>Game Run</span></h2>
+        <p class="best-score">Best Score: <span></span></p>
+        <button class="levl" onclick="updateLevel(4)">Easy</button>
+        <button class="levl" onclick="updateLevel(8)">Medium</button>
+        <button class="levl" onclick="updateLevel(12)">Hard</button>
+
+       
+
+        <div class="information">
+            <div class="time">time:<span>0</span></div>
+            <div class="lives"><span></span> lives left</div>
+        </div>
+
+        <img title="Hint1" class="hint" id="hint1" onclick="hint(1)" src="img/hint.png" alt="">
+        <img title="Hint2" class="hint" id="hint2" onclick="hint(2)" src="img/hint.png" alt="">
+        <img title="Hint3" class="hint" id="hint3" onclick="hint(3)" src="img/hint.png" alt="">
+        <img class="mine-exterminator" src="img/mine_Exterminator.jpg" onclick="mineExterminator()"
+                alt="Mine_Exterminator" title="Mine_Exterminator">
+
+
+                <div class="mines">mines to marked:<span></span></div>
+        <table class="board">
+            <tbody class="board-cells"></tbody>
+        </table>
+        
+        <div class="safe">
+            <button onclick="safeCell()" class="btn-safe">Safe Click</button>
+            <h3><span></span> clicks available</h3>
+            
+        </div>
+
+        <div class="btns">
+            <button onclick="manuallyCreate()">Manually Create</button>
+            <button onclick="undo()">UNDO</button>
+            <button onclick="megaHint()">Mega Hint</button>
+            <button onclick="onInit()">Restart</button>
+        </div>
+
+
+
+
+
+        <footer>Ⓒ Shahar Saadon Ⓒ</footer>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/hint.js"></script>
+    <script src="js/manually.js"></script>
+
+</body>
+
+</html>

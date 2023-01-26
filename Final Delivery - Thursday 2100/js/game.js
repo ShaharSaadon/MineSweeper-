@@ -198,7 +198,7 @@ function onCellClicked(elCell, i, j) {
 function onCellMarked(row, col) {
     var cell = gBoard[row][col]
 
-    if (!gBoard[row][col].isMarked && gGame.markedCount === gLevel.MINES) return
+    if (!gBoard[row][col].isMarked && gGame.markedCount === gLevel.MINES ||     gBoard[row][col].isShown) return
     if (cell.isMarked) {
         cell.isMarked = false
         gGame.markedCount--

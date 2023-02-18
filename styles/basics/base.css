@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+  html {
+    color: #5a5959;
+    font-family: aquire;
+  }
+  
+  body {
+    font-size: 1rem;
+    margin: 0;
+    background-image: url(/images/background.jpg);
+    background-size: cover;
+  }
+  img {
+    width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5,h6 {
+    margin: 0 0 1em;
+  }
+  
+  h2 {
+    font-size: 1.75em;
+    font-family: lato-bold;
+  }
+  
+  p {
+    margin: 0 0 1em;
+  }
+  
+  a{
+    text-decoration: none;
+    color:white
+  }
+
+  body.rtl {
+    direction: rtl;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

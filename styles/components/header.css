@@ -1,0 +1,49 @@
+.main-header{
+    margin-block-end: 20px;
+    background-color: black;
+    height: 60PX;
+    border-radius: 25px;
+}
+
+.logo{
+    font-size: 1.5rem;
+    padding: 0 0 0 1rem
+}
+
+.main-menu lis:hover{
+    transition: .5s;
+    }
+
+    
+.main-menu{
+    display: grid;
+    gap:100px;
+    grid-auto-flow: column;
+    flex-wrap: wrap;
+}
+
+.gallery-header span:hover{
+    cursor: pointer;
+}
+
+.main-nav .main-menu a{
+    margin-inline-start: 100px;
+    color:white;
+}
+
+@media (max-width:800px) {
+    .main-menu{
+     gap:40px;
+  }
+
+  .main-nav .main-menu a{
+    margin-inline-start: 60px;
+}
+}
+
+@media (max-width:600px) {
+    .main-menu{
+     gap:25px;
+
+  }
+}

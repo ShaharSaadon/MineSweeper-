@@ -1,0 +1,85 @@
+.images-grid-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 20rem)); */
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-auto-flow: dense;
+    gap: 10px;
+    padding: 60px;
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.search-by-keywords {
+    padding: 4px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 25px 25px;
+    background-color: #372d2d;
+    color: white;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.gallery-header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+.gallery-header button {
+    background-color: #372d2d;
+    color: antiquewhite;
+    border-radius: 20px;
+}
+
+.images-grid-container img:hover{
+scale: 1.2;
+border:2px black solid;
+transition: 0.4s;
+}
+
+.file-input-btn {
+    display: flex;
+    background-color: #372d2d;
+    color: antiquewhite;
+    border-radius: 20px;
+}
+
+.filter-by{
+    border-radius: 20px;
+    text-align: center;
+    background-color: #372d2d;
+    color: antiquewhite;
+}
+
+@media screen {
+    
+}
+
+@media (max-width:800px) {
+  
+    .meme-canvas {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .meme-controll{
+      margin-block-start: 5px;
+      margin-block-end: 5px;
+    }
+  }
+  
+  
+  @media (max-width:600px) {
+    .images-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+    }
+
+  
+    
+  }

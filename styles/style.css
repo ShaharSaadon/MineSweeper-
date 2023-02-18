@@ -1,0 +1,23 @@
+/* SETUP */
+@import 'setup/vars.css';
+@import 'setup/typography.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css';
+
+
+
+/* COMPONENTS */
+@import 'components/meme-container.css';
+@import 'components/header.css';
+@import 'components/gallery.css';
+@import 'components/memes.css';
+@import 'components/footer.css';
+
+
+
+/* MEDIA QUERIS */
+@import 'setup/mq.css';
+
+/* BASICS */
+@import 'basics/base.css';
+@import 'basics/layout.css';
+@import 'basics/helpers.css';
